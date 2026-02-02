@@ -1,3 +1,5 @@
 [deploy]
 dockerUser = "root"
-startCommand = "sh -c 'mkdir -p /data/.moltbot /data/workspace && node dist/entry.js gateway --port $PORT --bind lan --allow-unconfigured'"
+startCommand = "sh -c 'mkdir -p /data/.moltbot /data/workspace && rm -f /data/.moltbot/agents/*/sessions/*.lock && node dist/entry.js gateway --port $PORT --bind lan'"
+healthcheckPath = "/"
+healthcheckTimeout = 300
