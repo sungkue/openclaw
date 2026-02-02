@@ -1,7 +1,3 @@
-[build]
-
 [deploy]
 dockerUser = "root"
-startCommand = "sh -c 'chown -R root:root /data 2>/dev/null || true && mkdir -p /data/.openclaw && chmod -R 755 /data/.openclaw && node dist/entry.js gateway --port $PORT --bind lan --allow-unconfigured'"
-healthcheckPath = "/"
-healthcheckTimeout = 300
+startCommand = "sh -c 'mkdir -p /data/.moltbot /data/workspace && node dist/entry.js gateway --port $PORT --bind lan --allow-unconfigured'"
