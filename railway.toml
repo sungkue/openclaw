@@ -2,6 +2,6 @@
 
 [deploy]
 dockerUser = "root"
-startCommand = "sh -c 'mkdir -p /data/.openclaw && node dist/entry.js gateway --port $PORT --bind lan --allow-unconfigured'"
+startCommand = "sh -c 'chown -R root:root /data 2>/dev/null || true && mkdir -p /data/.openclaw && chmod -R 755 /data/.openclaw && node dist/entry.js gateway --port $PORT --bind lan --allow-unconfigured'"
 healthcheckPath = "/"
 healthcheckTimeout = 300
